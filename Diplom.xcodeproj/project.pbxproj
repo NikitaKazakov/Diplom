@@ -7,35 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		118108BB21A9C1E6000DE389 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 118108BA21A9C1E6000DE389 /* Assets.xcassets */; };
 		118108C621A9C20B000DE389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118108C521A9C20B000DE389 /* AppDelegate.swift */; };
-		118108CA21A9C228000DE389 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118108C821A9C228000DE389 /* ImageCell.xib */; };
-		118108CB21A9C228000DE389 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118108C921A9C228000DE389 /* ImageCell.swift */; };
-		118108CF21A9C23D000DE389 /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118108CE21A9C23D000DE389 /* ImageController.swift */; };
-		118108D121A9C243000DE389 /* RotateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118108D021A9C243000DE389 /* RotateViewController.swift */; };
 		118108D321A9C249000DE389 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118108D221A9C249000DE389 /* ViewController.swift */; };
-		118108DB21A9C251000DE389 /* ImageController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118108D521A9C251000DE389 /* ImageController.storyboard */; };
-		118108DC21A9C251000DE389 /* RotateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118108D621A9C251000DE389 /* RotateViewController.storyboard */; };
 		118108DE21A9C251000DE389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118108D921A9C251000DE389 /* Main.storyboard */; };
 		118108E121A9C3A5000DE389 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118108E021A9C3A5000DE389 /* Filters.swift */; };
+		11DAA5B521BFDDAB00AA7CD7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAA5B421BFDDAB00AA7CD7 /* CameraViewController.swift */; };
+		11DAA5B721BFDDBF00AA7CD7 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAA5B621BFDDBF00AA7CD7 /* CameraController.swift */; };
+		11DAA5B921BFDDDD00AA7CD7 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11DAA5B821BFDDDD00AA7CD7 /* Camera.storyboard */; };
+		11DAA5BB21BFFBAB00AA7CD7 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAA5BA21BFFBAB00AA7CD7 /* ImagePickerViewController.swift */; };
+		11DAA5BD21C03E0400AA7CD7 /* ImageProccessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DAA5BC21C03E0400AA7CD7 /* ImageProccessingViewController.swift */; };
+		11DAA5BF21C03E4400AA7CD7 /* ImageProccessingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11DAA5BE21C03E4400AA7CD7 /* ImageProccessingViewController.storyboard */; };
+		11DAA5C121C04BE900AA7CD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DAA5C021C04BE900AA7CD7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		118108B021A9C1E5000DE389 /* Diplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		118108BA21A9C1E6000DE389 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		118108BD21A9C1E6000DE389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		118108BF21A9C1E6000DE389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		118108C521A9C20B000DE389 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		118108C821A9C228000DE389 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
-		118108C921A9C228000DE389 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
-		118108CE21A9C23D000DE389 /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
-		118108D021A9C243000DE389 /* RotateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateViewController.swift; sourceTree = "<group>"; };
 		118108D221A9C249000DE389 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		118108D521A9C251000DE389 /* ImageController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageController.storyboard; sourceTree = "<group>"; };
-		118108D621A9C251000DE389 /* RotateViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RotateViewController.storyboard; sourceTree = "<group>"; };
-		118108D821A9C251000DE389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		118108DA21A9C251000DE389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		118108E021A9C3A5000DE389 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		11DAA5B421BFDDAB00AA7CD7 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		11DAA5B621BFDDBF00AA7CD7 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		11DAA5B821BFDDDD00AA7CD7 /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		11DAA5BA21BFFBAB00AA7CD7 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		11DAA5BC21C03E0400AA7CD7 /* ImageProccessingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProccessingViewController.swift; sourceTree = "<group>"; };
+		11DAA5BE21C03E4400AA7CD7 /* ImageProccessingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageProccessingViewController.storyboard; sourceTree = "<group>"; };
+		11DAA5C021C04BE900AA7CD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,38 +67,61 @@
 		118108B221A9C1E5000DE389 /* Diplom */ = {
 			isa = PBXGroup;
 			children = (
-				118108D421A9C251000DE389 /* Storyboards */,
+				11DAA5C421C39D9400AA7CD7 /* Controller */,
+				11DAA5C321C39D8E00AA7CD7 /* View */,
+				11DAA5C221C39D7E00AA7CD7 /* Model */,
 				118108C521A9C20B000DE389 /* AppDelegate.swift */,
-				118108CE21A9C23D000DE389 /* ImageController.swift */,
-				118108D021A9C243000DE389 /* RotateViewController.swift */,
-				118108D221A9C249000DE389 /* ViewController.swift */,
-				118108E021A9C3A5000DE389 /* Filters.swift */,
-				118108C721A9C228000DE389 /* Cells */,
-				118108BA21A9C1E6000DE389 /* Assets.xcassets */,
-				118108BC21A9C1E6000DE389 /* LaunchScreen.storyboard */,
+				11DAA5C021C04BE900AA7CD7 /* Assets.xcassets */,
 				118108BF21A9C1E6000DE389 /* Info.plist */,
 			);
 			path = Diplom;
 			sourceTree = "<group>";
 		};
-		118108C721A9C228000DE389 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				118108C821A9C228000DE389 /* ImageCell.xib */,
-				118108C921A9C228000DE389 /* ImageCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		118108D421A9C251000DE389 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				118108D521A9C251000DE389 /* ImageController.storyboard */,
-				118108D621A9C251000DE389 /* RotateViewController.storyboard */,
-				118108D721A9C251000DE389 /* LaunchScreen.storyboard */,
 				118108D921A9C251000DE389 /* Main.storyboard */,
+				11DAA5B821BFDDDD00AA7CD7 /* Camera.storyboard */,
+				11DAA5BE21C03E4400AA7CD7 /* ImageProccessingViewController.storyboard */,
+				118108BC21A9C1E6000DE389 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		11DAA5B321BFDD7600AA7CD7 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				11DAA5B621BFDDBF00AA7CD7 /* CameraController.swift */,
+				11DAA5B421BFDDAB00AA7CD7 /* CameraViewController.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		11DAA5C221C39D7E00AA7CD7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				118108E021A9C3A5000DE389 /* Filters.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		11DAA5C321C39D8E00AA7CD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				118108D421A9C251000DE389 /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		11DAA5C421C39D9400AA7CD7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11DAA5BC21C03E0400AA7CD7 /* ImageProccessingViewController.swift */,
+				11DAA5BA21BFFBAB00AA7CD7 /* ImagePickerViewController.swift */,
+				118108D221A9C249000DE389 /* ViewController.swift */,
+				11DAA5B321BFDD7600AA7CD7 /* Camera */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,10 +184,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				118108DE21A9C251000DE389 /* Main.storyboard in Resources */,
-				118108DB21A9C251000DE389 /* ImageController.storyboard in Resources */,
-				118108CA21A9C228000DE389 /* ImageCell.xib in Resources */,
-				118108DC21A9C251000DE389 /* RotateViewController.storyboard in Resources */,
-				118108BB21A9C1E6000DE389 /* Assets.xcassets in Resources */,
+				11DAA5B921BFDDDD00AA7CD7 /* Camera.storyboard in Resources */,
+				11DAA5BF21C03E4400AA7CD7 /* ImageProccessingViewController.storyboard in Resources */,
+				11DAA5C121C04BE900AA7CD7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,11 +198,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				118108D321A9C249000DE389 /* ViewController.swift in Sources */,
+				11DAA5BD21C03E0400AA7CD7 /* ImageProccessingViewController.swift in Sources */,
 				118108C621A9C20B000DE389 /* AppDelegate.swift in Sources */,
-				118108CB21A9C228000DE389 /* ImageCell.swift in Sources */,
 				118108E121A9C3A5000DE389 /* Filters.swift in Sources */,
-				118108CF21A9C23D000DE389 /* ImageController.swift in Sources */,
-				118108D121A9C243000DE389 /* RotateViewController.swift in Sources */,
+				11DAA5B521BFDDAB00AA7CD7 /* CameraViewController.swift in Sources */,
+				11DAA5B721BFDDBF00AA7CD7 /* CameraController.swift in Sources */,
+				11DAA5BB21BFFBAB00AA7CD7 /* ImagePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,14 +214,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				118108BD21A9C1E6000DE389 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		118108D721A9C251000DE389 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				118108D821A9C251000DE389 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

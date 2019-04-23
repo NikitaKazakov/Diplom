@@ -63,12 +63,12 @@ extension CameraViewController {
     @IBAction func toggleFlash(_ sender: UIButton) {
         if cameraController.flashMode == .on {
             cameraController.flashMode = .off
-            toggleFlashButton.setImage(#imageLiteral(resourceName: "Flash Off Icon"), for: .normal)
+            toggleFlashButton.setImage(#imageLiteral(resourceName: "ic_flash_off"), for: .normal)
         }
             
         else {
             cameraController.flashMode = .on
-            toggleFlashButton.setImage(#imageLiteral(resourceName: "Flash On Icon"), for: .normal)
+            toggleFlashButton.setImage(#imageLiteral(resourceName: "ic_flash_on"), for: .normal)
         }
     }
     
@@ -83,10 +83,10 @@ extension CameraViewController {
         
         switch cameraController.currentCameraPosition {
         case .some(.front):
-            toggleCameraButton.setImage(#imageLiteral(resourceName: "Front Camera Icon"), for: .normal)
+            toggleCameraButton.setImage(#imageLiteral(resourceName: "ic_photo_camera"), for: .normal)
             
         case .some(.rear):
-            toggleCameraButton.setImage(#imageLiteral(resourceName: "Rear Camera Icon"), for: .normal)
+            toggleCameraButton.setImage(#imageLiteral(resourceName: "ic_camera_rear"), for: .normal)
             
         case .none:
             return

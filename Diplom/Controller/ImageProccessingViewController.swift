@@ -37,7 +37,6 @@ class ImageProccessingViewController: UIViewController {
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         originalButton.backgroundColor = UIColor.white
-        parent 
     }
     
     @IBAction func originalButtonPressed(_ sender: UIButton) {

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GraphCell" rowHeight="474" id="y8D-AM-pGK" customClass="GraphCell" customModule="TelegramContest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="474"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y8D-AM-pGK" id="kTF-QB-CJf">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="473.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ul-Wc-wTP" customClass="GraphView" customModule="TelegramContest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="400" id="B5W-dJ-cnQ"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWK-Gc-LaS" customClass="SmallGraphView" customModule="TelegramContest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="400" width="375" height="70"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YlK-RY-rFx">
+                                <rect key="frame" x="40" y="0.0" width="30" height="5"/>
+                                <color key="backgroundColor" white="0.62596318490000002" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVq-oJ-3QD">
+                                <rect key="frame" x="40" y="65" width="30" height="5"/>
+                                <color key="backgroundColor" white="0.62596318490000002" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-yZ-uLF">
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="70"/>
+                                <color key="backgroundColor" white="0.78387521404109572" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mfp-QF-hUD">
+                                <rect key="frame" x="40" y="5" width="30" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQw-3t-9zB">
+                                <rect key="frame" x="70" y="0.0" width="10" height="70"/>
+                                <color key="backgroundColor" white="0.62596318493150682" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="5Qj-EK-CJu"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIH-Te-DWS">
+                                <rect key="frame" x="80" y="0.0" width="295" height="70"/>
+                                <color key="backgroundColor" white="0.7990421660958904" alpha="0.51789918664383561" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utY-vw-JIG">
+                                <rect key="frame" x="30" y="0.0" width="10" height="70"/>
+                                <color key="backgroundColor" white="0.62596318490000002" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="VSc-3N-Zs3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mfp-QF-hUD" firstAttribute="leading" secondItem="utY-vw-JIG" secondAttribute="trailing" id="0wD-Bb-MzJ"/>
+                            <constraint firstItem="hIH-Te-DWS" firstAttribute="top" secondItem="PWK-Gc-LaS" secondAttribute="top" id="3lw-Mq-jQs"/>
+                            <constraint firstItem="xXJ-yZ-uLF" firstAttribute="leading" secondItem="PWK-Gc-LaS" secondAttribute="leading" id="5HJ-yy-rKs"/>
+                            <constraint firstItem="utY-vw-JIG" firstAttribute="leading" secondItem="xXJ-yZ-uLF" secondAttribute="trailing" id="5nv-8i-bA7"/>
+                            <constraint firstAttribute="bottom" secondItem="Mfp-QF-hUD" secondAttribute="bottom" constant="5" id="6Bz-eO-1qT"/>
+                            <constraint firstAttribute="height" constant="70" id="9a5-dT-3KQ"/>
+                            <constraint firstAttribute="bottom" secondItem="SVq-oJ-3QD" secondAttribute="bottom" id="BSz-CC-UXG"/>
+                            <constraint firstItem="utY-vw-JIG" firstAttribute="leading" secondItem="PWK-Gc-LaS" secondAttribute="leading" constant="30" id="JgT-F4-98B"/>
+                            <constraint firstAttribute="bottom" secondItem="xXJ-yZ-uLF" secondAttribute="bottom" id="Kkz-Xu-nvi"/>
+                            <constraint firstItem="YlK-RY-rFx" firstAttribute="leading" secondItem="utY-vw-JIG" secondAttribute="trailing" id="PMX-fm-icw"/>
+                            <constraint firstItem="hIH-Te-DWS" firstAttribute="leading" secondItem="SQw-3t-9zB" secondAttribute="trailing" id="QXL-rc-OT7"/>
+                            <constraint firstAttribute="trailing" secondItem="hIH-Te-DWS" secondAttribute="trailing" id="Qvr-Oc-JHX"/>
+                            <constraint firstItem="Mfp-QF-hUD" firstAttribute="top" secondItem="YlK-RY-rFx" secondAttribute="bottom" id="SiT-Rk-WOT"/>
+                            <constraint firstItem="utY-vw-JIG" firstAttribute="top" secondItem="PWK-Gc-LaS" secondAttribute="top" id="Sxx-tK-9ot"/>
+                            <constraint firstItem="SQw-3t-9zB" firstAttribute="leading" secondItem="SVq-oJ-3QD" secondAttribute="trailing" id="XHj-IR-eMO"/>
+                            <constraint firstItem="Mfp-QF-hUD" firstAttribute="top" secondItem="PWK-Gc-LaS" secondAttribute="top" constant="5" id="Yt2-Kt-qw8"/>
+                            <constraint firstItem="SQw-3t-9zB" firstAttribute="leading" secondItem="Mfp-QF-hUD" secondAttribute="trailing" id="bRL-Yp-rSc"/>
+                            <constraint firstItem="SVq-oJ-3QD" firstAttribute="leading" secondItem="utY-vw-JIG" secondAttribute="trailing" id="e37-YM-iSU"/>
+                            <constraint firstAttribute="top" secondItem="YlK-RY-rFx" secondAttribute="top" id="ebS-Zg-zkK"/>
+                            <constraint firstAttribute="bottom" secondItem="utY-vw-JIG" secondAttribute="bottom" id="esu-o5-7tq"/>
+                            <constraint firstAttribute="bottom" secondItem="hIH-Te-DWS" secondAttribute="bottom" id="gXM-TZ-wrx"/>
+                            <constraint firstItem="SQw-3t-9zB" firstAttribute="leading" secondItem="PWK-Gc-LaS" secondAttribute="leading" constant="70" id="igN-fL-AHP"/>
+                            <constraint firstItem="SVq-oJ-3QD" firstAttribute="top" secondItem="Mfp-QF-hUD" secondAttribute="bottom" id="nJd-lJ-fvj"/>
+                            <constraint firstItem="SQw-3t-9zB" firstAttribute="leading" secondItem="YlK-RY-rFx" secondAttribute="trailing" id="og9-Bx-FZF"/>
+                            <constraint firstAttribute="bottom" secondItem="SQw-3t-9zB" secondAttribute="bottom" id="q1W-WY-AUv"/>
+                            <constraint firstItem="xXJ-yZ-uLF" firstAttribute="top" secondItem="PWK-Gc-LaS" secondAttribute="top" id="qEA-Np-9nI"/>
+                            <constraint firstItem="SQw-3t-9zB" firstAttribute="top" secondItem="PWK-Gc-LaS" secondAttribute="top" id="sbn-YS-EZ9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PWK-Gc-LaS" firstAttribute="top" secondItem="5Ul-Wc-wTP" secondAttribute="bottom" id="4qt-Oa-655"/>
+                    <constraint firstAttribute="trailing" secondItem="PWK-Gc-LaS" secondAttribute="trailing" id="5n9-aH-1md"/>
+                    <constraint firstItem="5Ul-Wc-wTP" firstAttribute="leading" secondItem="kTF-QB-CJf" secondAttribute="leading" id="IFJ-Zp-fTv"/>
+                    <constraint firstAttribute="bottom" secondItem="PWK-Gc-LaS" secondAttribute="bottom" id="LLI-MY-c6W"/>
+                    <constraint firstItem="5Ul-Wc-wTP" firstAttribute="top" secondItem="kTF-QB-CJf" secondAttribute="top" id="RT2-bN-sUd"/>
+                    <constraint firstItem="PWK-Gc-LaS" firstAttribute="leading" secondItem="kTF-QB-CJf" secondAttribute="leading" id="dqP-jv-gYA"/>
+                    <constraint firstAttribute="trailing" secondItem="5Ul-Wc-wTP" secondAttribute="trailing" id="qSB-PM-sVr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="centralPannedView" destination="Mfp-QF-hUD" id="fpv-Eg-84D"/>
+                <outlet property="graphView" destination="5Ul-Wc-wTP" id="f8j-HS-ks3"/>
+                <outlet property="leftLeadingConstaint" destination="JgT-F4-98B" id="pQI-0h-OoW"/>
+                <outlet property="leftPannedView" destination="utY-vw-JIG" id="OLW-6N-9AM"/>
+                <outlet property="leftSideView" destination="xXJ-yZ-uLF" id="RsB-7M-xbq"/>
+                <outlet property="rightLeadingConstraint" destination="igN-fL-AHP" id="6rZ-jx-VbW"/>
+                <outlet property="rightPannedView" destination="SQw-3t-9zB" id="Bdi-k9-EBC"/>
+                <outlet property="rightSideView" destination="hIH-Te-DWS" id="w3E-94-9FP"/>
+                <outlet property="smallGraphView" destination="PWK-Gc-LaS" id="Oax-yP-H0Y"/>
+            </connections>
+            <point key="canvasLocation" x="128.80000000000001" y="118.74062968515743"/>
+        </tableViewCell>
+    </objects>
+</document>

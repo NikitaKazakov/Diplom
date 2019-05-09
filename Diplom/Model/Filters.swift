@@ -12,8 +12,7 @@ import CoreImage.CIFilter
 import UIKit
 
 class Filter: CIFilter {
-    
-    func processPixels(in image: UIImage, computing: (_ buff: UnsafeMutablePointer<Filter.RGBA32>, _ off: Int,_ i: Int, _ j: Int) -> Swift.Void) -> UIImage? {
+    func grayscale(image: UIImage) -> UIImage? {
         guard let inputCGImage = image.cgImage else {
             print("unable to get cgImage")
             return nil
@@ -41,7 +40,49 @@ class Filter: CIFilter {
         for row in 0 ..< Int(height) {
             for column in 0 ..< Int(width) {
                 let offset = row * width + column
-                computing(pixelBuffer,offset,row,column)
+                let avgColor = pixelBuffer[offset].redComponent/3 + pixelBuffer[offset].greenComponent/3 + pixelBuffer[offset].blueComponent/3
+                pixelBuffer[offset] = Filter.RGBA32(red: avgColor, green: avgColor, blue: avgColor, alpha: 255)
+            }
+        }
+        let outputCGImage = context.makeImage()!
+        let outputImage = UIImage(cgImage: outputCGImage, scale: image.scale, orientation: image.imageOrientation)
+        
+        return outputImage
+    }
+    
+    func binary(image: UIImage) -> UIImage? {
+        guard let inputCGImage = image.cgImage else {
+            print("unable to get cgImage")
+            return nil
+        }
+        let colorSpace       = CGColorSpaceCreateDeviceRGB()
+        let width            = inputCGImage.width
+        let height           = inputCGImage.height
+        let bytesPerPixel    = 4
+        let bitsPerComponent = 8
+        let bytesPerRow      = bytesPerPixel * width
+        let bitmapInfo       = RGBA32.bitmapInfo
+        
+        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
+            print("unable to create context")
+            return nil
+        }
+        context.draw(inputCGImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        guard let buffer = context.data else {
+            print("unable to get context data")
+            return nil
+        }
+        
+        let pixelBuffer = buffer.bindMemory(to: RGBA32.self, capacity: width * height)
+        for row in 0 ..< Int(height) {
+            for column in 0 ..< Int(width) {
+                let offset = row * width + column
+                if pixelBuffer[offset].color > UInt32.max/3*2 {
+                    pixelBuffer[offset] = Filter.RGBA32.white
+                } else {
+                    pixelBuffer[offset] = Filter.RGBA32.black
+                }
             }
         }
         let outputCGImage = context.makeImage()!
@@ -75,51 +116,60 @@ class Filter: CIFilter {
         }
         
         let pixelBuffer = buffer.bindMemory(to: RGBA32.self, capacity: width * height)
-        for row in 0 ..< Int(height) {
-            for column in 0 ..< Int(width) {
-                let offset = row * width + column
-                let avgColor = pixelBuffer[offset].redComponent/3 + pixelBuffer[offset].greenComponent/3 + pixelBuffer[offset].blueComponent/3
-                pixelBuffer[offset] = Filter.RGBA32(red: avgColor, green: avgColor, blue: avgColor, alpha: 255)
+        
+        var maxGradient = -1
+        
+        
+        func getOffset(_ i: Int, _ j: Int) -> Int {
+            return i * width + j
+        }
+        
+        var edges: [[Int]] = Array<[Int]>.init(repeating: Array<Int>(repeating: 0, count: width), count: height)
+        
+        for i in 1 ..< Int(height) - 1 {
+            for j in 1 ..< Int(width) - 1 {
+                let val00 = getGrayScale(pixelBuffer[getOffset(i - 1, j - 1)]);
+                let val01 = getGrayScale(pixelBuffer[getOffset(i - 1, j)]);
+                let val02 = getGrayScale(pixelBuffer[getOffset(i - 1, j + 1)]);
+                
+                let val10 = getGrayScale(pixelBuffer[getOffset(i, j - 1)]);
+                let val11 = getGrayScale(pixelBuffer[getOffset(i, j)]);
+                let val12 = getGrayScale(pixelBuffer[getOffset(i, j + 1)]);
+                
+                let val20 = getGrayScale(pixelBuffer[getOffset(i + 1, j - 1)]);
+                let val21 = getGrayScale(pixelBuffer[getOffset(i + 1, j)]);
+                let val22 = getGrayScale(pixelBuffer[getOffset(i + 1, j + 1)]);
+                
+                let gx =  ((-1 * val00) + (0 * val01) + (1 * val02))
+                    + ((-2 * val10) + (0 * val11) + (2 * val12))
+                    + ((-1 * val20) + (0 * val21) + (1 * val22));
+                
+                let gy =  ((-1 * val00) + (-2 * val01) + (-1 * val02))
+                    + ((0 * val10) + (0 * val11) + (0 * val12))
+                    + ((1 * val20) + (2 * val21) + (1 * val22));
+                
+                let gval = sqrt(Double((gx * gx) + (gy * gy)));
+                let g =  Int(gval);
+                
+                if(maxGradient < g) {
+                    maxGradient = g;
+                }
+                
+                edges[i][j] = g
             }
         }
-        for row in 0 ..< Int(height) {
-            //var s = 0
-            for column in 0 ..< Int(width) {
-//                for k in 0..<3 {
-//                    let offset = (row + k) * width + column
-//                    s += Int(pixelBuffer[offset].redComponent/3 + pixelBuffer[offset].greenComponent/3 + pixelBuffer[offset].blueComponent/3)
-//                }
-//                for k in 0..<3 {
-//                    let offset = (row + k) * width + column + 2
-//                    s -= Int(pixelBuffer[offset].redComponent/3 + pixelBuffer[offset].greenComponent/3 + pixelBuffer[offset].blueComponent/3)
-//                }
-//                var s2: UInt8
-//                if s >= UInt8.max {
-//                    s2 = UInt8.max
-//                } else {
-//                    s2 = UInt8(s)
-//                }
-                if column != Int(width) - 1 {
-                    let offset1 = row * width + column
-                    let avgColor1 = pixelBuffer[offset1].redComponent/3 + pixelBuffer[offset1].greenComponent/3 + pixelBuffer[offset1].blueComponent/3
-                    let offset2 = row * width + column + 1
-                    let avgColor2 = pixelBuffer[offset2].redComponent/3 + pixelBuffer[offset2].greenComponent/3 + pixelBuffer[offset2].blueComponent/3
-                    if Double(avgColor1) >= Double(avgColor2) {
-                        if (Double(avgColor1)-Double(avgColor2))/255*100 >= 50 {
-                            pixelBuffer[offset1] = Filter.RGBA32(red: 255, green: 255, blue: 255, alpha: 255)
-                        } else {
-                            pixelBuffer[offset1] = Filter.RGBA32(red: 0, green: 0, blue: 0, alpha: 255)
-                        }
-                    } else {
-                        if (Double(avgColor2)-Double(avgColor1))/255*100  >= 50 {
-                            pixelBuffer[offset2] = Filter.RGBA32(red: 255, green: 255, blue: 255, alpha: 255)
-                        } else {
-                            pixelBuffer[offset2] = Filter.RGBA32(red: 0, green: 0, blue: 0, alpha: 255)
-                        }
-                    }
-                }
-//                let offset = (row) * width + column
-//                pixelBuffer[offset] = Filter.RGBA32(red: s2, green: s2, blue: s2, alpha: 255)
+        
+        
+        for i in 1 ..< Int(height) - 1 {
+            for j in 1 ..< Int(width) - 1 {
+                let offset = i * width + j
+                
+                let scale = 255.0 / Double(maxGradient)
+                
+                var edgeColor = UInt32(Double(edges[i][j]) * scale)
+                edgeColor = (edgeColor << 24) | (edgeColor << 16) | (edgeColor << 8) | 255
+                
+                pixelBuffer[offset] = Filter.RGBA32(edgeColor)
             }
         }
         let outputCGImage = context.makeImage()!
@@ -127,6 +177,15 @@ class Filter: CIFilter {
         
         return outputImage
     }
+    
+    private func getGrayScale(_ rgb: Filter.RGBA32) -> Int {
+        let r = Int(0.2126 * Double(rgb.redComponent))
+        let g = Int(0.7152 * Double(rgb.greenComponent))
+        let b = Int(0.0722 * Double(rgb.blueComponent))
+        let avg = rgb.redComponent/3 + rgb.blueComponent/3 + rgb.greenComponent/3
+        return Int(avg)
+    }
+    
     
     struct RGBA32: Equatable {
         /*private*/ var color: UInt32
@@ -153,6 +212,10 @@ class Filter: CIFilter {
             let blue  = UInt32(blue)
             let alpha = UInt32(alpha)
             color = (red << 24) | (green << 16) | (blue << 8) | (alpha << 0)
+        }
+        
+        init(_ color: UInt32) {
+            self.color = color
         }
         
         static let red     = RGBA32(red: 255, green: 0,   blue: 0,   alpha: 255)

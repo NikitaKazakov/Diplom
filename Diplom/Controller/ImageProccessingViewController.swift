@@ -22,9 +22,11 @@ class ImageProccessingViewController: UIViewController {
     @IBOutlet weak var grayscaleButton: UIButton!
     @IBOutlet weak var binaryButton: UIButton!
     @IBOutlet weak var bordersButton: UIButton!
+    @IBOutlet weak var histogramButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    
     var image: UIImage!
+    
+    private lazy var images: [String : UIImage] = [originalButton.description : image]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +54,11 @@ class ImageProccessingViewController: UIViewController {
         grayscaleButton.backgroundColor = UIColor.white
         binaryButton.backgroundColor = UIColor.pink
         bordersButton.backgroundColor = UIColor.pink
-        imageView.image = Filter().processPixels(in: image) { pixelBuffer, offset,_,_ in
-            let avgColor = pixelBuffer[offset].redComponent/3 + pixelBuffer[offset].greenComponent/3 + pixelBuffer[offset].blueComponent/3
-            pixelBuffer[offset] = Filter.RGBA32(red: avgColor, green: avgColor, blue: avgColor, alpha: 255)
+        if let image = images[sender.description] {
+            imageView.image = image
+        } else {
+            images[sender.description] = Filter().grayscale(image: image)
+            imageView.image = images[sender.description]
         }
     }
     
@@ -63,12 +67,11 @@ class ImageProccessingViewController: UIViewController {
         grayscaleButton.backgroundColor = UIColor.pink
         binaryButton.backgroundColor = UIColor.white
         bordersButton.backgroundColor = UIColor.pink
-        imageView.image = Filter().processPixels(in: image) { pixelBuffer, offset,_,_ in
-            if pixelBuffer[offset].color > UInt32.max/3*2 {
-                pixelBuffer[offset] = Filter.RGBA32.white
-            } else {
-                pixelBuffer[offset] = Filter.RGBA32.black
-            }
+        if let image = images[sender.description] {
+            imageView.image = image
+        } else {
+            images[sender.description] = Filter().binary(image: image)
+            imageView.image = images[sender.description]
         }
     }
     
@@ -77,16 +80,18 @@ class ImageProccessingViewController: UIViewController {
         grayscaleButton.backgroundColor = UIColor.pink
         binaryButton.backgroundColor = UIColor.pink
         bordersButton.backgroundColor = UIColor.white
-        imageView.image = Filter().borders(in: image)
+        if let image = images[sender.description] {
+            imageView.image = image
+        } else {
+            images[sender.description] = Filter().borders(in: image)
+            imageView.image = images[sender.description]
+        }
     }
-    
-    @IBAction func funcbackButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func histogramButtonPressed(_ sender: UIButton) {
     }
-    
 }
 
 
 extension UIColor {
-    static let pink = UIColor(red: 224/255.0, green: 177/255.0, blue: 255255/0, alpha: 1)
+    static let pink = UIColor(red: 224/255.0, green: 177/255.0, blue: 255/255.0, alpha: 1)
 }

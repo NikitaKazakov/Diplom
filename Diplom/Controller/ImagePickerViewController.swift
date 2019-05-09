@@ -19,8 +19,7 @@ class ImagePickerViewController: UIImagePickerController, UIImagePickerControlle
         guard let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerOriginalImage")] as? UIImage else { return }
         let vc = ImageProccessingViewController.instantiate(image: image)
         
-        present(vc, animated: true) {
-        }
+        picker.pushViewController(vc, animated: true)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){

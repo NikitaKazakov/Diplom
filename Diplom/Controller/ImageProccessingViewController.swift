@@ -25,6 +25,8 @@ class ImageProccessingViewController: UIViewController {
     @IBOutlet weak var histogramButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     var image: UIImage!
+    var x: [Int]!
+    var y: [YValues]!
     
     private lazy var images: [String : UIImage] = [originalButton.description : image]
     
@@ -39,6 +41,8 @@ class ImageProccessingViewController: UIViewController {
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
         originalButton.backgroundColor = UIColor.white
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     @IBAction func originalButtonPressed(_ sender: UIButton) {
@@ -88,6 +92,26 @@ class ImageProccessingViewController: UIViewController {
         }
     }
     @IBAction func histogramButtonPressed(_ sender: UIButton) {
+        let view = UINib(nibName: "GraphCell", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! GraphCell
+        self.view.addSubview(view)
+        view.frame = imageView.frame
+        view.isUserInteractionEnabled = true
+        if x != nil, y != nil {
+            view.graphView.subModel = SubModel(x: x, y: y)
+            view.smallGraphView.subModel = SubModel(x: x, y: y)
+        } else {
+            guard let array = Filter().histogram(image: image) else {
+                return
+            }
+            
+            var x = [Int]()
+            (0..<256).forEach { x.append($0) }
+            let y = YValues(color: "#F34C44", name: "histogram", data: array)
+            view.graphView.subModel =  SubModel(x: x, y: [y])
+            view.smallGraphView.subModel = SubModel(x: x, y: [y])
+            self.x = x
+            self.y = [y]
+        }
     }
 }
 

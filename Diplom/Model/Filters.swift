@@ -178,6 +178,43 @@ class Filter: CIFilter {
         return outputImage
     }
     
+    func histogram(image: UIImage) -> [Int]? {
+        guard let inputCGImage = image.cgImage else {
+            print("unable to get cgImage")
+            return nil
+        }
+        let colorSpace       = CGColorSpaceCreateDeviceRGB()
+        let width            = inputCGImage.width
+        let height           = inputCGImage.height
+        let bytesPerPixel    = 4
+        let bitsPerComponent = 8
+        let bytesPerRow      = bytesPerPixel * width
+        let bitmapInfo       = RGBA32.bitmapInfo
+        
+        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
+            print("unable to create context")
+            return nil
+        }
+        context.draw(inputCGImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        guard let buffer = context.data else {
+            print("unable to get context data")
+            return nil
+        }
+        
+        let pixelBuffer = buffer.bindMemory(to: RGBA32.self, capacity: width * height)
+        var array = Array<Int>.init(repeating: 0, count: 256)
+        
+        for i in 0..<Int(height) {
+            for j in 0..<Int(width) {
+                let offset = i * width + j
+                array[getGrayScale(pixelBuffer[offset])] += 1
+            }
+        }
+        
+        return array
+    }
+    
     private func getGrayScale(_ rgb: Filter.RGBA32) -> Int {
         let r = Int(0.2126 * Double(rgb.redComponent))
         let g = Int(0.7152 * Double(rgb.greenComponent))

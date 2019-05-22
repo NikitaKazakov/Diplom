@@ -36,6 +36,7 @@ class ImageProccessingViewController: UIViewController {
         grayscaleButton.layer.cornerRadius = 8
         binaryButton.layer.cornerRadius = 8
         bordersButton.layer.cornerRadius = 8
+        histogramButton.layer.cornerRadius = 8
         imageView.layer.cornerRadius = 12
         imageView.image = image
         imageView.layer.masksToBounds = true
@@ -92,13 +93,11 @@ class ImageProccessingViewController: UIViewController {
         }
     }
     @IBAction func histogramButtonPressed(_ sender: UIButton) {
-        let view = UINib(nibName: "GraphCell", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! GraphCell
-        self.view.addSubview(view)
-        view.frame = imageView.frame
-        view.isUserInteractionEnabled = true
+        let subModel: SubModel
         if x != nil, y != nil {
-            view.graphView.subModel = SubModel(x: x, y: y)
-            view.smallGraphView.subModel = SubModel(x: x, y: y)
+            subModel = SubModel(x: x, y: y)
+            //view.graphView.subModel = SubModel(x: x, y: y)
+            //view.smallGraphView.subModel = SubModel(x: x, y: y)
         } else {
             guard let array = Filter().histogram(image: image) else {
                 return
@@ -107,11 +106,14 @@ class ImageProccessingViewController: UIViewController {
             var x = [Int]()
             (0..<256).forEach { x.append($0) }
             let y = YValues(color: "#F34C44", name: "histogram", data: array)
-            view.graphView.subModel =  SubModel(x: x, y: [y])
-            view.smallGraphView.subModel = SubModel(x: x, y: [y])
+            subModel = SubModel(x: x, y: [y])
+            //view.graphView.subModel =  SubModel(x: x, y: [y])
+            //view.smallGraphView.subModel = SubModel(x: x, y: [y])
             self.x = x
             self.y = [y]
         }
+        navigationController?.pushViewController(HistogramViewController.instantiate(subModel: subModel), animated: true)
+        
     }
 }
 

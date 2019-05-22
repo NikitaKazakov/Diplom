@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="IAz-5f-LZp">
-                                        <rect key="frame" x="0.0" y="0.0" width="660" height="68"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="68"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXs-s0-h0b">
                                                 <rect key="frame" x="0.0" y="0.0" width="68" height="68"/>
@@ -87,42 +87,6 @@
                                                 <connections>
                                                     <action selector="histogramButtonPressed:" destination="DkN-WH-Pq1" eventType="touchUpInside" id="LFQ-pE-e60"/>
                                                 </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GX-sV-A9c">
-                                                <rect key="frame" x="370" y="0.0" width="68" height="68"/>
-                                                <color key="backgroundColor" red="0.87754173800000002" green="0.69566031679999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="68" id="WhV-hb-PUG"/>
-                                                    <constraint firstAttribute="height" constant="68" id="XUa-D4-Pvd"/>
-                                                </constraints>
-                                                <state key="normal" title="Borders"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChG-wT-H87">
-                                                <rect key="frame" x="444" y="0.0" width="68" height="68"/>
-                                                <color key="backgroundColor" red="0.87754173800000002" green="0.69566031679999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="68" id="GXd-hi-HCG"/>
-                                                    <constraint firstAttribute="height" constant="68" id="Z8N-gB-ndN"/>
-                                                </constraints>
-                                                <state key="normal" title="Borders"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JAw-Sw-OC5">
-                                                <rect key="frame" x="518" y="0.0" width="68" height="68"/>
-                                                <color key="backgroundColor" red="0.87754173800000002" green="0.69566031679999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="68" id="HZD-uu-xtz"/>
-                                                    <constraint firstAttribute="width" constant="68" id="XzN-t9-d3r"/>
-                                                </constraints>
-                                                <state key="normal" title="Borders"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zV9-zd-MR5">
-                                                <rect key="frame" x="592" y="0.0" width="68" height="68"/>
-                                                <color key="backgroundColor" red="0.87754173800000002" green="0.69566031679999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="68" id="4aD-Rk-M8D"/>
-                                                    <constraint firstAttribute="width" constant="68" id="dd0-RC-jB0"/>
-                                                </constraints>
-                                                <state key="normal" title="Borders"/>
                                             </button>
                                         </subviews>
                                         <constraints>

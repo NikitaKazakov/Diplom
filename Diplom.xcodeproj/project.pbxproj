@@ -17,6 +17,10 @@
 		1103DDDF2284625300AEF54D /* SmallGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103DDD42284625300AEF54D /* SmallGraphView.swift */; };
 		1103DDE02284625300AEF54D /* chart_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1103DDD62284625300AEF54D /* chart_data.json */; };
 		1103DDE12284625300AEF54D /* CustomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103DDD72284625300AEF54D /* CustomModel.swift */; };
+		1175E03C2295EF24000B7990 /* HistogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1175E03B2295EF24000B7990 /* HistogramViewController.swift */; };
+		1175E03E2295EFF4000B7990 /* StatusCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1175E03D2295EFF4000B7990 /* StatusCellTableViewCell.xib */; };
+		1175E0402295F007000B7990 /* StatusCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1175E03F2295F007000B7990 /* StatusCellTableViewCell.swift */; };
+		1175E0422295FA6D000B7990 /* Histogram.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1175E0412295FA6D000B7990 /* Histogram.storyboard */; };
 		118108C621A9C20B000DE389 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118108C521A9C20B000DE389 /* AppDelegate.swift */; };
 		118108D321A9C249000DE389 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118108D221A9C249000DE389 /* ViewController.swift */; };
 		118108DE21A9C251000DE389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 118108D921A9C251000DE389 /* Main.storyboard */; };
@@ -42,6 +46,10 @@
 		1103DDD42284625300AEF54D /* SmallGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallGraphView.swift; sourceTree = "<group>"; };
 		1103DDD62284625300AEF54D /* chart_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chart_data.json; sourceTree = "<group>"; };
 		1103DDD72284625300AEF54D /* CustomModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModel.swift; sourceTree = "<group>"; };
+		1175E03B2295EF24000B7990 /* HistogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistogramViewController.swift; sourceTree = "<group>"; };
+		1175E03D2295EFF4000B7990 /* StatusCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusCellTableViewCell.xib; sourceTree = "<group>"; };
+		1175E03F2295F007000B7990 /* StatusCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCellTableViewCell.swift; sourceTree = "<group>"; };
+		1175E0412295FA6D000B7990 /* Histogram.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Histogram.storyboard; sourceTree = "<group>"; };
 		118108B021A9C1E5000DE389 /* Diplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118108BD21A9C1E6000DE389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		118108BF21A9C1E6000DE389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +179,7 @@
 				11DAA5B821BFDDDD00AA7CD7 /* Camera.storyboard */,
 				11DAA5BE21C03E4400AA7CD7 /* ImageProccessingViewController.storyboard */,
 				118108BC21A9C1E6000DE389 /* LaunchScreen.storyboard */,
+				1175E0412295FA6D000B7990 /* Histogram.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -195,6 +204,8 @@
 		11DAA5C321C39D8E00AA7CD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1175E03F2295F007000B7990 /* StatusCellTableViewCell.swift */,
+				1175E03D2295EFF4000B7990 /* StatusCellTableViewCell.xib */,
 				118108D421A9C251000DE389 /* Storyboards */,
 			);
 			path = View;
@@ -207,6 +218,7 @@
 				11DAA5BA21BFFBAB00AA7CD7 /* ImagePickerViewController.swift */,
 				118108D221A9C249000DE389 /* ViewController.swift */,
 				11DAA5B321BFDD7600AA7CD7 /* Camera */,
+				1175E03B2295EF24000B7990 /* HistogramViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -273,8 +285,10 @@
 				1103DDDD2284625300AEF54D /* GraphCell.xib in Resources */,
 				1103DDC62284624800AEF54D /* StartVC.storyboard in Resources */,
 				1103DDE02284625300AEF54D /* chart_data.json in Resources */,
+				1175E0422295FA6D000B7990 /* Histogram.storyboard in Resources */,
 				118108DE21A9C251000DE389 /* Main.storyboard in Resources */,
 				1103DDDB2284625300AEF54D /* SwitchModeCell.xib in Resources */,
+				1175E03E2295EFF4000B7990 /* StatusCellTableViewCell.xib in Resources */,
 				11DAA5B921BFDDDD00AA7CD7 /* Camera.storyboard in Resources */,
 				11DAA5BF21C03E4400AA7CD7 /* ImageProccessingViewController.storyboard in Resources */,
 				11BD501F226F80750016494A /* LaunchScreen.storyboard in Resources */,
@@ -298,6 +312,8 @@
 				1103DDDA2284625300AEF54D /* SwitchModeCell.swift in Sources */,
 				1103DDE12284625300AEF54D /* CustomModel.swift in Sources */,
 				11DAA5B721BFDDBF00AA7CD7 /* CameraController.swift in Sources */,
+				1175E03C2295EF24000B7990 /* HistogramViewController.swift in Sources */,
+				1175E0402295F007000B7990 /* StatusCellTableViewCell.swift in Sources */,
 				1103DDDE2284625300AEF54D /* GraphView.swift in Sources */,
 				1103DDD82284625300AEF54D /* GraphCell.swift in Sources */,
 				11DAA5BB21BFFBAB00AA7CD7 /* ImagePickerViewController.swift in Sources */,

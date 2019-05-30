@@ -62,8 +62,20 @@ class ImageProccessingViewController: UIViewController {
         if let image = images[sender.description] {
             imageView.image = image
         } else {
-            images[sender.description] = Filter().grayscale(image: image)
-            imageView.image = images[sender.description]
+            let activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+            activityIndicator.center = view.center
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            activityIndicator.isUserInteractionEnabled = true
+            
+            DispatchQueue.global(qos: .userInteractive).async {
+                self.images[sender.description] = Filter().grayscale(image: self.image)
+                DispatchQueue.main.async {
+                    self.imageView.image = self.images[sender.description]
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                }
+            }
         }
     }
     
@@ -75,8 +87,20 @@ class ImageProccessingViewController: UIViewController {
         if let image = images[sender.description] {
             imageView.image = image
         } else {
-            images[sender.description] = Filter().binary(image: image)
-            imageView.image = images[sender.description]
+            let activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+            activityIndicator.center = view.center
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            activityIndicator.isUserInteractionEnabled = true
+            
+            DispatchQueue.global(qos: .userInteractive).async {
+                self.images[sender.description] = Filter().binary(image: self.image)
+                DispatchQueue.main.async {
+                    self.imageView.image = self.images[sender.description]
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                }
+            }
         }
     }
     
@@ -88,31 +112,55 @@ class ImageProccessingViewController: UIViewController {
         if let image = images[sender.description] {
             imageView.image = image
         } else {
-            images[sender.description] = Filter().borders(in: image)
-            imageView.image = images[sender.description]
+            let activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+            activityIndicator.center = view.center
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            activityIndicator.isUserInteractionEnabled = true
+            
+            DispatchQueue.global(qos: .userInteractive).async {
+                self.images[sender.description] = Filter().borders(in: self.image)
+                DispatchQueue.main.async {
+                    self.imageView.image = self.images[sender.description]
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                }
+            }
         }
     }
     @IBAction func histogramButtonPressed(_ sender: UIButton) {
-        let subModel: SubModel
         if x != nil, y != nil {
+            let subModel: SubModel
             subModel = SubModel(x: x, y: y)
             //view.graphView.subModel = SubModel(x: x, y: y)
             //view.smallGraphView.subModel = SubModel(x: x, y: y)
+            navigationController?.pushViewController(HistogramViewController.instantiate(subModel: subModel), animated: true)
         } else {
-            guard let array = Filter().histogram(image: image) else {
-                return
+            let activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+            activityIndicator.center = view.center
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            activityIndicator.isUserInteractionEnabled = true
+            DispatchQueue.global(qos: .userInteractive).async {
+                guard let array = Filter().histogram(image: self.image) else {
+                    return
+                }
+                
+                var x = [Int]()
+                (0..<256).forEach { x.append($0) }
+                let y = YValues(color: "#F34C44", name: "histogram", data: array)
+                let subModel = SubModel(x: x, y: [y])
+                //view.graphView.subModel =  SubModel(x: x, y: [y])
+                //view.smallGraphView.subModel = SubModel(x: x, y: [y])
+                self.x = x
+                self.y = [y]
+                DispatchQueue.main.async {
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                    self.navigationController?.pushViewController(HistogramViewController.instantiate(subModel: subModel), animated: true)
+                }
             }
-            
-            var x = [Int]()
-            (0..<256).forEach { x.append($0) }
-            let y = YValues(color: "#F34C44", name: "histogram", data: array)
-            subModel = SubModel(x: x, y: [y])
-            //view.graphView.subModel =  SubModel(x: x, y: [y])
-            //view.smallGraphView.subModel = SubModel(x: x, y: [y])
-            self.x = x
-            self.y = [y]
         }
-        navigationController?.pushViewController(HistogramViewController.instantiate(subModel: subModel), animated: true)
         
     }
 }

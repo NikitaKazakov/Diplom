@@ -43,6 +43,7 @@ class ImageProccessingViewController: UIViewController {
         imageView.clipsToBounds = true
         originalButton.backgroundColor = UIColor.white
         
+        navigationController?.navigationBar.isHidden = false
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
@@ -69,7 +70,7 @@ class ImageProccessingViewController: UIViewController {
             activityIndicator.isUserInteractionEnabled = true
             
             DispatchQueue.global(qos: .userInteractive).async {
-                self.images[sender.description] = Filter().grayscale(image: self.image)
+                self.images[sender.description] = Filter.shared.grayscale(image: self.image)
                 DispatchQueue.main.async {
                     self.imageView.image = self.images[sender.description]
                     activityIndicator.stopAnimating()
@@ -94,7 +95,7 @@ class ImageProccessingViewController: UIViewController {
             activityIndicator.isUserInteractionEnabled = true
             
             DispatchQueue.global(qos: .userInteractive).async {
-                self.images[sender.description] = Filter().binary(image: self.image)
+                self.images[sender.description] = Filter.shared.binary(image: self.image)
                 DispatchQueue.main.async {
                     self.imageView.image = self.images[sender.description]
                     activityIndicator.stopAnimating()
@@ -119,7 +120,7 @@ class ImageProccessingViewController: UIViewController {
             activityIndicator.isUserInteractionEnabled = true
             
             DispatchQueue.global(qos: .userInteractive).async {
-                self.images[sender.description] = Filter().borders(in: self.image)
+                self.images[sender.description] = Filter.shared.borders(in: self.image)
                 DispatchQueue.main.async {
                     self.imageView.image = self.images[sender.description]
                     activityIndicator.stopAnimating()
@@ -142,7 +143,7 @@ class ImageProccessingViewController: UIViewController {
             activityIndicator.startAnimating()
             activityIndicator.isUserInteractionEnabled = true
             DispatchQueue.global(qos: .userInteractive).async {
-                guard let array = Filter().histogram(image: self.image) else {
+                guard let array = Filter.shared.histogram(image: self.image) else {
                     return
                 }
                 

@@ -7,11 +7,17 @@
 //
 
 import Foundation
-import CoreImage.CIKernel
-import CoreImage.CIFilter
+import CoreImage
+import CoreGraphics
 import UIKit
 
-class Filter: CIFilter {
+class Filter {
+    
+    public static let shared = Filter()
+    
+    private init() {
+    }
+    
     func grayscale(image: UIImage) -> UIImage? {
         guard let inputCGImage = image.cgImage else {
             print("unable to get cgImage")

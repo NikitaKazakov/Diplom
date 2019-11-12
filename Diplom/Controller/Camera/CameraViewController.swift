@@ -57,6 +57,11 @@ extension CameraViewController {
         configureCameraController()
         navigationController?.navigationBar.isHidden = true
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
 }
 
 extension CameraViewController {
@@ -100,8 +105,9 @@ extension CameraViewController {
                 return
             }
             let vc = ImageProccessingViewController.instantiate(image: image)
-            self.present(vc, animated: true) {
-            }
+            self.navigationController?.pushViewController(vc, animated: true)
+//            self.present(vc, animated: true) {
+//            }
 //            try? PHPhotoLibrary.shared().performChangesAndWait {
 //                PHAssetChangeRequest.creationRequestForAsset(from: image)
 //            }
